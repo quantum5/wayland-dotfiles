@@ -165,4 +165,5 @@ exec exec mako
 exec --no-startup-id exec run_keybase -a
 exec_always --no-startup-id exec sh -c 'killall waybar; exec waybar'
 exec_always --no-startup-id exec sh -c 'pkill redshift; exec redshift-gtk'
+exec_always --no-startup-id exec sh -c 'pkill cava -P "$(pgrep -f 'kitty/cava.conf')"; exec ~/.config/sway/cava-bg'
 exec exec slack -u
