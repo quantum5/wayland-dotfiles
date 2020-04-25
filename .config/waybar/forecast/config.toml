@@ -1,0 +1,14 @@
+api_key = "03db729abf39bf15dffb16773c660966"
+
+# Waterloo, ON
+# city_id = "6176823"
+
+# Toronto, ON
+city_id = "6167865"
+
+# San Francisco, CA
+# city_id = "5391959"
+
+units = "metric"
+
+display = "<span font_desc='Weather Icons'>{{ temp_icon }}</span> {{ temp_celcius }}°C <span font_desc='Font Awesome 5 Pro'>{{ trend }}</span> <span font_desc='Weather Icons'>{{ forecast_icon }}</span> {{ forecast_celcius }}°C"

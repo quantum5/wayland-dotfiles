@@ -1,0 +1,18 @@
+#!/bin/bash
+
+dir="$(mktemp -d -t swaylock-XXXXXXXXXXXX)"
+clean() {
+    rm -rf "$dir"
+}
+trap clean EXIT
+
+lock_args=()
+
+while read -r output; do
+    image="$dir/$output.ppm"
+    grim -o "$output" "$image" -t ppm
+    gm convert "$image" -resize 20% -blur 0x2 "$image"
+    lock_args+=( --image "$output:$image" )
+done < <(swaymsg -t get_outputs | jq -r '.[].name')
+
+swaylock -f "${lock_args[@]}"

@@ -1,0 +1,3 @@
+#!/bin/bash
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+firefox "https://www.google.com/search?q=weather+in+$(grep -B1 ^city_id "$DIR/config.toml" | head -n1 | cut -d' ' -f2- | tr ' ' '+')"
