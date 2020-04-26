@@ -11,7 +11,7 @@ input "1452:613:Apple_Inc._Magic_Trackpad_2" {
 
 font pango:DejaVu Sans Mono 9
 
-client.focused  #ff965a   #ff965a   #ffffff   #ff965a  #ff965a
+client.focused #268bd2 #268bd2 #ffffff #268bd2 #268bd2
 
 gaps inner 10
 gaps outer 4
