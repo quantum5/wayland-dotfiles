@@ -1,6 +1,8 @@
 set $mod Mod4
 
+input * xkb_numlock enabled
 output * bg "$HOME/Pictures/Wallpapers/Messier 81.jpg" fill
+output HDMI-A-1 adaptive_sync on
 
 # hardware
 input "1452:613:Apple_Inc._Magic_Trackpad_2" {
@@ -126,6 +128,7 @@ for_window [title="feh.*screenshot"] fullscreen on
 bindsym print exec --no-startup-id screenshot
 bindsym $mod+print exec --no-startup-id screenshot-full
 bindsym $mod+Ctrl+Shift+4 exec --no-startup-id screenshot
+bindsym $mod+Ctrl+4 exec --no-startup-id screenshot-full
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -160,10 +163,17 @@ smart_gaps on
 smart_borders on
 default_border pixel
 
-# notifications
+# program specific options
+for_window [app_id="firefox" title="Firefox - 共享指示器"] floating enable; move position 1855 0
+
+# notifications, bars, etc.
 exec exec mako
-exec --no-startup-id exec run_keybase -a
 exec_always --no-startup-id exec sh -c 'killall waybar; exec waybar'
 exec_always --no-startup-id exec sh -c 'pkill redshift; exec redshift-gtk'
-exec_always --no-startup-id exec sh -c 'pkill cava -P "$(pgrep -f 'kitty/cava.conf')"; exec ~/.config/sway/cava-bg'
+
+# desktop audio visualizer, need https://github.com/quantum5/kitty
+exec_always --no-startup-id exec ~/.config/sway/cava-bg
+
+# background apps
 exec exec slack -u
+exec --no-startup-id exec run_keybase -a
