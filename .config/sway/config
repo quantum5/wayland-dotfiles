@@ -102,10 +102,10 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # lock screen
 bindsym $mod+L exec --no-startup-id exec ~/.config/sway/fancy-lock
-exec exec swayidle -w \
+exec exec swayidle \
          timeout 300 '~/.config/sway/fancy-lock' \
          timeout 600 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"' \
+              resume 'swaymsg "output * dpms on"; ~/.config/sway/cava-bg' \
          before-sleep '~/.config/sway/fancy-lock'
 
 # reload the configuration file
