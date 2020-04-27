@@ -9,6 +9,12 @@ input "1452:613:Apple_Inc._Magic_Trackpad_2" {
     natural_scroll enabled
 }
 
+input "76:613:Apple_Inc._Magic_Trackpad_2" {
+    click_method clickfinger
+    tap_button_map lrm
+    natural_scroll enabled
+}
+
 font pango:DejaVu Sans Mono 9
 
 client.focused #268bd2 #268bd2 #ffffff #268bd2 #268bd2
@@ -31,6 +37,7 @@ bindsym Mod1+F4 kill
 
 # launcher
 bindsym $mod+d exec exec rofi -show run
+bindsym $mod+space exec exec rofi -show run
 bindsym $mod+g exec exec rofi -show ssh
 
 # change focus
@@ -61,7 +68,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+Ctrl+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -166,9 +173,12 @@ default_border pixel
 # program specific options
 for_window [app_id="firefox" title="Firefox - 共享指示器"] floating enable; move position 1855 0
 for_window [class="Wine" title="Music Keyboard"] floating enable
+for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="blueman-manager"] floating enable
 
 # notifications, bars, etc.
 exec exec mako
+exec exec blueman-applet
 exec_always --no-startup-id exec sh -c 'killall waybar; exec waybar'
 exec_always --no-startup-id exec sh -c 'pkill redshift; exec redshift-gtk'
 exec_always --no-startup-id exec sh -c 'pkill fluidsynth; exec fluidsynth -i -a pulseaudio -s /usr/share/sounds/sf2/FluidR3_GM.sf2'
