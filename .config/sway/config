@@ -165,11 +165,13 @@ default_border pixel
 
 # program specific options
 for_window [app_id="firefox" title="Firefox - 共享指示器"] floating enable; move position 1855 0
+for_window [class="Wine" title="Music Keyboard"] floating enable
 
 # notifications, bars, etc.
 exec exec mako
 exec_always --no-startup-id exec sh -c 'killall waybar; exec waybar'
 exec_always --no-startup-id exec sh -c 'pkill redshift; exec redshift-gtk'
+exec_always --no-startup-id exec sh -c 'pkill fluidsynth; exec fluidsynth -i -a pulseaudio -s /usr/share/sounds/sf2/FluidR3_GM.sf2'
 
 # desktop audio visualizer, need https://github.com/quantum5/kitty
 exec_always --no-startup-id exec ~/.config/sway/cava-bg
