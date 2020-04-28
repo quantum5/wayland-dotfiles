@@ -45,12 +45,7 @@ window#waybar {
 }
 
 #pulseaudio {
-  border-bottom: 3px solid #cb4b16;
-}
-
-#clock {
   border-bottom: 3px solid #6c71c4;
-  background-color: rgba(0, 0, 0, 0);
 }
 
 #custom-weather {
@@ -65,14 +60,7 @@ window#waybar {
   border-bottom: 3px solid #268bd2;
 }
 
-#pulseaudio {
-  background: rgba(0, 0, 0, 0);
-  color: white;
+#clock {
+  border-bottom: 3px solid #6c71c4;
+  background-color: rgba(0, 0, 0, 0);
 }
-
-#pulseaudio.muted {
-  background: rgba(0, 0, 0, 0);
-  color: white;
-  margin-left: 8px;
-}
-

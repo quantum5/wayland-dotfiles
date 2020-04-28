@@ -4,7 +4,7 @@
     "height": 30, // Waybar height (to be removed for auto height)
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "custom/weather", "cpu", "memory", "clock"],
+    "modules-right": ["tray", "pulseaudio", "custom/weather", "cpu", "memory", "clock"],
     // Modules configuration
     "sway/workspaces": {
         "all-outputs": false,
@@ -101,9 +101,9 @@
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
-        "scroll-step": 5, // %, can be a float
-        "format": "{icon}  {volume}%",
-        "format-muted": "灔 ",
+        "scroll-step": 5,
+        "format": "<span font_desc='Font Awesome 5 Pro'>{icon}</span> {volume}%",
+        "format-muted": "<span font_desc='Font Awesome 5 Pro'></span>",
         "format-icons": {
             "headphone": "",
             "hands-free": "磤",
@@ -111,9 +111,10 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", "", ""]
+            "default": ["", "", "", ""]
         },
-        "on-click": "pavucontrol"
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "pavucontrol"
     },
     "custom/weather": {
         "exec": "~/.config/waybar/forecast/polybar-forecast",
