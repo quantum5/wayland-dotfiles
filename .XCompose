@@ -1,5 +1,5 @@
+include "%L"
 
-# BEGIN Quantum's BetterUS Layout
 <dead_acute> <apostrophe> : "′" minutes
 <dead_acute> <quotedbl> : "̧‴" U2034
 
@@ -264,4 +264,50 @@
 <dead_O> <c> : "Ⅽ" U216d
 <dead_O> <d> : "Ⅾ" U216e
 <dead_O> <m> : "Ⅿ" U216f
-# END Quantum's BetterUS Layout
+
+<dead_lowline> <q> : "←" U2190
+<dead_lowline> <w> : "↑" U2191
+<dead_lowline> <e> : "→" U2192
+<dead_lowline> <r> : "↓" U2193
+<dead_lowline> <t> : "↔" U2194
+<dead_lowline> <y> : "↕" U2195
+<dead_lowline> <u> : "↖" U2196
+<dead_lowline> <i> : "↗" U2197
+<dead_lowline> <o> : "↘" U2198
+<dead_lowline> <p> : "↙" U2199
+<dead_lowline> <Q> : "↰" U21b0
+<dead_lowline> <W> : "↱" U21b1
+<dead_lowline> <E> : "↲" U21b2
+<dead_lowline> <R> : "↳" U21b3
+<dead_lowline> <T> : "↴" U21b4
+<dead_lowline> <Y> : "↵" U21b5
+<dead_lowline> <U> : "↶" U21b6
+<dead_lowline> <I> : "↷" U21b7
+<dead_lowline> <O> : "↹" U21b9
+<dead_lowline> <bracketleft> : "↺" U21ba
+<dead_lowline> <bracketright> : "↻" U21bb
+
+<dead_aboveverticalline> <space> : "‘" U2018
+<dead_aboveverticalline> <1> : "‘" U2018
+<dead_aboveverticalline> <2> : "’" U2019
+<dead_aboveverticalline> <3> : "" U201a
+<dead_aboveverticalline> <4> : "‛" U201b
+<dead_aboveverticalline> <q> : "“" U201c
+<dead_aboveverticalline> <w> : "”" U201d
+<dead_aboveverticalline> <e> : "„" U201e
+<dead_aboveverticalline> <r> : "‟" U201f
+<dead_aboveverticalline> <a> : "′" U2032
+<dead_aboveverticalline> <s> : "″" U2033
+<dead_aboveverticalline> <d> : "‴" U2034
+<dead_aboveverticalline> <f> : "⁗" U2057
+<dead_aboveverticalline> <z> : "‵" U2035
+<dead_aboveverticalline> <x> : "‶" U2036
+<dead_aboveverticalline> <c> : "‷" U2037
+<dead_aboveverticalline> <exclam> : "‼" U203c
+<dead_aboveverticalline> <comma> : "⁌" U204c
+<dead_aboveverticalline> <period> : "⁍" U204d
+<dead_aboveverticalline> <asterisk> : "⁎" U204e
+<dead_aboveverticalline> <semicolon> : "⁏" U204f
+<dead_aboveverticalline> <8> : "⁑" U2051
+<dead_aboveverticalline> <6> : "⁀" U2040
+<dead_aboveverticalline> <question> : "⁇" U2047

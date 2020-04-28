@@ -39,10 +39,10 @@ xkb_symbols "betterus" {
     key <AC07>  { [         j,          J,      dead_symbol,     d_symbol2 ] };
     key <AC08>  { [         k,          K,     dead_symbol3,         U200c ] };
     key <AC09>  { [         l,          L,          lstroke,       Lstroke ] };
-    key <AC10>  { [ semicolon,      colon,   dead_diaeresis,     ad_quotes ] };
+    key <AC10>  { [ semicolon,      colon,   dead_diaeresis, dead_aboveverticalline ] };
     key <AC11>  { [apostrophe,   quotedbl,       dead_acute, dead_doubleacute ] };
 
-    key <AB01>  { [         z,          Z,       dead_arrow,     Multi_key ] };
+    key <AB01>  { [         z,          Z,     dead_lowline,     Multi_key ] };
     key <AB02>  { [         x,          X,           dead_i,      ellipsis ] };
     key <AB03>  { [         c,          C,         ccedilla,      Ccedilla ] };
     key <AB04>  { [         v,          V,        copyright,         U262d ] };
