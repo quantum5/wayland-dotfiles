@@ -15,6 +15,10 @@ input "76:613:Apple_Inc._Magic_Trackpad_2" {
     natural_scroll enabled
 }
 
+input type:keyboard {
+    xkb_layout betterus
+}
+
 font pango:DejaVu Sans Mono 9
 
 client.focused #268bd2 #268bd2 #ffffff #268bd2 #268bd2
