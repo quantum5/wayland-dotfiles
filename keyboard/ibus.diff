@@ -1,0 +1,20 @@
+--- a/simple.xml	2020-04-28 19:46:43.565845316 -0400
++++ b/simple.xml	2020-04-28 19:45:52.941904266 -0400
+@@ -20,6 +20,17 @@
+                         <icon>ibus-keyboard</icon>
+ 			<rank>99</rank>
+ 		</engine>
++                <engine>
++                        <name>xkb:betterus</name>
++                        <language>en</language>
++                        <license>GPL</license>
++                        <author>Quantum &lt;me@quantum2.xyz&gt;</author>
++                        <layout>betterus</layout>
++                        <longname>English (BetterUS)</longname>
++                        <description>English (BetterUS)</description>
++                        <icon>ibus-keyboard</icon>
++                        <rank>99</rank>
++                </engine>
+ 		<engine>
+ 			<name>xkb:us:intl:eng</name>
+ 			<language>en</language>
