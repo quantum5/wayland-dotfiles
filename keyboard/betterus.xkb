@@ -46,9 +46,9 @@ xkb_symbols "betterus" {
     key <AB02>  { [         x,          X,           dead_i,      ellipsis ] };
     key <AB03>  { [         c,          C,         ccedilla,      Ccedilla ] };
     key <AB04>  { [         v,          V,        copyright,         U262d ] };
-    key <AB05>  { [         b,          B,       dead_roman,    dead_Roman ] };
+    key <AB05>  { [         b,          B,           dead_o,        dead_O ] };
     key <AB06>  { [         n,          N,         multiply,       notsign ] };
-    key <AB07>  { [         m,          M,        dead_math,    dead_math2 ] };
+    key <AB07>  { [         m,          M,           dead_e,        dead_E ] };
     key <AB08>  { [     comma,       less,     dead_cedilla, dead_commabelow ] };
     key <AB09>  { [    period,    greater,            U22c5, dead_abovering ] };
     key <AB10>  { [     slash,   question,         division,  questiondown ] };
