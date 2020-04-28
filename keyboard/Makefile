@@ -9,5 +9,5 @@ install-symbols:
 	cp betterus.xkb $(XKBSYMBOLS)/betterus
 
 install-compose:
-	(sed "/# BEGIN Quantum's BetterUS Layout/,/# END Quantum's BetterUS Layout/d" $(XKBCOMPOSE); cat betterus.compose) > Compose
+	(sed "/# BEGIN Quantum's BetterUS Layout/,/# END Quantum's BetterUS Layout/d" $(XKBCOMPOSE) | tac | sed -e '/./,$$!d' | tac; cat betterus.compose) > Compose
 	cp Compose $(XKBCOMPOSE)
