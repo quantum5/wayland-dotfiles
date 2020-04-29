@@ -8,4 +8,8 @@ install-symbols:
 	cp betterus.xkb $(XKBSYMBOLS)/betterus
 
 install-ibus:
-	patch /usr/share/ibus/component/simple.xml < ibus.diff
+	if patch --dry-run --reverse --force /usr/share/ibus/component/simple.xml < ibus.diff >/dev/null 2>&1; then \
+		echo 'iBus already patched'; \
+	else \
+		patch --no-backup-if-mismatch --forward -r - /usr/share/ibus/component/simple.xml < ibus.diff; \
+	fi

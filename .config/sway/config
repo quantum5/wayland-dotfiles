@@ -143,9 +143,7 @@ bindsym $mod+Ctrl+4 exec --no-startup-id screenshot-full
 
 # input method
 exec_always --no-startup-id fcitx -rd
-#exec_always --no-startup-id ibus-daemon -drx
-#bindsym $mod+Shift+a exec ibus engine xkb:betterus
-#bindsym $mod+Shift+s exec ibus engine libpinyin
+for_window [app_id="fcitx-config-gtk3"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
