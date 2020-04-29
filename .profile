@@ -29,7 +29,8 @@ fi
 # If running from tty1 start sway
 if [ "$(tty)" = "/dev/tty1" ]; then
     export MOZ_ENABLE_WAYLAND=1
-    export GTK_IM_MODULE=ibus
-    export QTK_IM_MODULE=ibus
+    export GTK_IM_MODULE=fcitx
+    export QTK_IM_MODULE=fcitx
+    export XMODIFIERS=@im=fcitx
     exec sway -Dnoatomic
 fi
