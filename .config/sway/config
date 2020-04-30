@@ -2,7 +2,9 @@ set $mod Mod4
 
 input * xkb_numlock enabled
 output * bg "$HOME/Pictures/Wallpapers/Messier 81.jpg" fill
-output HDMI-A-1 adaptive_sync on
+
+output HDMI-A-1 pos 0 0 res 1920x1080
+output DP-3 pos 0 1080 res 1920x1080
 
 # hardware
 input "1452:613:Apple_Inc._Magic_Trackpad_2" {
@@ -13,6 +15,10 @@ input "76:613:Apple_Inc._Magic_Trackpad_2" {
     click_method clickfinger
     tap_button_map lrm
     natural_scroll enabled
+}
+
+input "1266:2422:Chicony_Wireless_Device" {
+    left_handed yes
 }
 
 input type:keyboard {
