@@ -1,0 +1,11 @@
+[Unit]
+Description=Open Source Corsair Input Device Driver for Linux and OSX.
+Documentation=https://github.com/ckb-next/ckb-next/wiki
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/ckb-next -b
+
+[Install]
+WantedBy=sway-session.target

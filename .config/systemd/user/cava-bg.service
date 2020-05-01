@@ -1,0 +1,10 @@
+[Unit]
+Description=Displays audio visualizer in the background.
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.config/sway/cava-bg
+
+[Install]
+WantedBy=sway-session.target

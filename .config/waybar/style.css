@@ -44,6 +44,10 @@ window#waybar {
   border-bottom: 3px solid transparent;
 }
 
+#mpd {
+  border-bottom: 3px solid #268bd2;
+}
+
 #pulseaudio {
   border-bottom: 3px solid #6c71c4;
 }

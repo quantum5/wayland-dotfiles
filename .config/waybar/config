@@ -4,23 +4,23 @@
     "height": 30, // Waybar height (to be removed for auto height)
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["tray", "pulseaudio", "custom/weather", "cpu", "memory", "clock"],
+    "modules-right": ["tray", "mpd", "pulseaudio", "custom/weather", "cpu", "memory", "clock"],
     // Modules configuration
     "sway/workspaces": {
         "all-outputs": false,
         "enable-bar-scroll": true,
         "format": "{icon}",
         "format-icons": {
-            "1": "1",
-            "2": "2",
-            "3": "3",
-            "4": "4",
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
             "5": "5",
             "6": "6",
             "7": "7",
             "8": "8",
             "9": "9",
-            "10": "0",
+            "10": "",
             "urgent": "",
             "focused": "",
             "default": ""
@@ -33,30 +33,27 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "mpd": {
-        "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ",
+        "format": "<span font_desc='Font Awesome 5 Pro'>{stateIcon}</span> {consumeIcon}{randomIcon}{repeatIcon}{title} <span font_desc='Font Awesome 5 Pro'></span>",
         "format-disconnected": "Disconnected ",
-        "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+        "format-stopped": "<span font_desc='Font Awesome 5 Pro'>{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}</span> Stopped <font_desc='Font Awesome 5 Pro'></span>",
         "unknown-tag": "N/A",
         "interval": 2,
         "consume-icons": {
-            "on": " "
+            "on": "<span font_desc='Font Awesome 5 Pro'></span> "
         },
         "random-icons": {
-            "off": "<span color=\"#f53c3c\"></span> ",
-            "on": " "
+            "on": "<span font_desc='Font Awesome 5 Pro'></span> "
         },
         "repeat-icons": {
-            "on": " "
-        },
-        "single-icons": {
-            "on": "1 "
+            "on": "<span font_desc='Font Awesome 5 Pro'></span> "
         },
         "state-icons": {
             "paused": "",
             "playing": ""
         },
-        "tooltip-format": "MPD (connected)",
-        "tooltip-format-disconnected": "MPD (disconnected)"
+        "tooltip-format": "{title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+        "on-click": "sonata"
     },
     "idle_inhibitor": {
         "format": "{icon}",

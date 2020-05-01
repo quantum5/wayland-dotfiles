@@ -32,5 +32,6 @@ if [ "$(tty)" = "/dev/tty1" ]; then
     export GTK_IM_MODULE=fcitx
     export QTK_IM_MODULE=fcitx
     export XMODIFIERS=@im=fcitx
+    export LC_TIME=C.UTF-8
     exec sway -Dnoatomic
 fi

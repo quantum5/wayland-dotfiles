@@ -1,3 +1,2 @@
 #!/bin/sh
-pkill cava -P "$(pgrep -f 'kitty/cava.conf' || echo 0)"
 exec kitty -c ~/.config/kitty/cava.conf --background cava

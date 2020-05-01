@@ -1,0 +1,10 @@
+[Unit]
+Description=Start a MIDI synthesizer.
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/fluidsynth -g 2 -i -a pulseaudio -s /usr/share/sounds/sf2/FluidR3_GM.sf2
+
+[Install]
+WantedBy=sway-session.target

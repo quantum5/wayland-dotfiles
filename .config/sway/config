@@ -119,11 +119,6 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 # lock screen
 bindsym $mod+L exec --no-startup-id exec ~/.config/sway/fancy-lock
-exec exec swayidle \
-         timeout 300 '~/.config/sway/fancy-lock' \
-         timeout 600 'swaymsg "output * dpms off"' \
-              resume 'swaymsg "output * dpms on"; ~/.config/sway/cava-bg' \
-         before-sleep '~/.config/sway/fancy-lock'
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -135,15 +130,17 @@ bindsym $mod+Shift+r reload
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioStop exec --no-startup-id mpc stop
+bindsym XF86AudioPlay exec --no-startup-id mpc toggle
+bindsym XF86AudioPrev exec --no-startup-id mpc prev
+bindsym XF86AudioNext exec --no-startup-id mpc next
 
 # screenshot
 for_window [title="feh.*screenshot"] floating enable
 for_window [title="feh.*screenshot"] fullscreen on
 bindsym print exec --no-startup-id screenshot
 bindsym $mod+print exec --no-startup-id screenshot-full
+bindsym Mod1+print exec --no-startup-id screenshot-window
 bindsym $mod+Ctrl+Shift+4 exec --no-startup-id screenshot
 bindsym $mod+Ctrl+4 exec --no-startup-id screenshot-full
 
@@ -186,20 +183,17 @@ default_border pixel
 
 # program specific options
 for_window [app_id="firefox" title="Firefox - 共享指示器"] floating enable; move position 1855 0
+for_window [app_id="thunderbird" title="撰写.*"] floating enable
+for_window [app_id="thunderbird" title=".*提醒"] floating enable
 for_window [class="Wine" title="Music Keyboard"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="blueman-assistant"] floating enable
+for_window [app_id="sonata"] floating enable
+for_window [class="radeon-profile"] floating enable
 
-# notifications, bars, etc.
-exec exec mako
-exec exec blueman-applet
-exec_always --no-startup-id exec sh -c 'killall waybar; exec waybar'
-exec_always --no-startup-id exec sh -c 'pkill redshift; exec redshift-gtk'
-exec_always --no-startup-id exec sh -c 'pkill fluidsynth; exec fluidsynth -i -a pulseaudio -s /usr/share/sounds/sf2/FluidR3_GM.sf2'
-
-# desktop audio visualizer, need https://github.com/quantum5/kitty
-exec_always --no-startup-id exec ~/.config/sway/cava-bg
+# spawn systemd.
+exec "systemctl --user import-environment; systemctl --user start sway-session.target"
 
 # background apps
 exec exec slack -u
