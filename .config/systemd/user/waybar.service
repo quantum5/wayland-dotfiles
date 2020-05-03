@@ -6,6 +6,8 @@ PartOf=graphical-session.target
 [Service]
 Type=simple
 ExecStart=/usr/local/bin/waybar
+Restart=on-failure
+RestartSec=5s
 
 [Install]
 WantedBy=sway-session.target
