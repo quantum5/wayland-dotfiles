@@ -4,7 +4,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/fluidsynth -g 2 -i -a pulseaudio -s /usr/share/sounds/sf2/FluidR3_GM.sf2
+ExecStart=/usr/bin/fluidsynth -g 1 -i -a pulseaudio -s /usr/local/share/sounds/sf2/TimbresOfHeaven_GM.sf2
 
 [Install]
 WantedBy=sway-session.target

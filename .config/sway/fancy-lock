@@ -1,2 +1,8 @@
 #!/bin/sh
-exec swaylock --screenshots --effect-blur 10x5 --clock --indicator --text-color FFFFFFFF --grace 10 --fade-in 1 --font 'DejaVu Sans Mono'
+if [ "$1" = '-n' ]; then
+    grace=0
+else
+    grace=10
+fi
+
+exec swaylock --screenshots --effect-blur 10x5 --clock --indicator --text-color FFFFFFFF --grace "$grace" --fade-in 1 --font 'DejaVu Sans Mono'

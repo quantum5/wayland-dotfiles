@@ -118,7 +118,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 # lock screen
-bindsym $mod+L exec --no-startup-id exec ~/.config/sway/fancy-lock
+bindsym $mod+L exec --no-startup-id exec ~/.config/sway/fancy-lock -n
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -191,6 +191,7 @@ for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="blueman-assistant"] floating enable
 for_window [app_id="sonata"] floating enable
 for_window [class="radeon-profile"] floating enable
+for_window [class="jetbrains-pycharm" title="win0"] floating enable
 
 # spawn systemd.
 exec "systemctl --user import-environment; systemctl --user start sway-session.target"

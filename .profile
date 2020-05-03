@@ -33,5 +33,6 @@ if [ "$(tty)" = "/dev/tty1" ]; then
     export QTK_IM_MODULE=fcitx
     export XMODIFIERS=@im=fcitx
     export LC_TIME=C.UTF-8
+    export SSH_AUTH_SOCK="/run/user/$UID/openssh_agent"
     exec sway -Dnoatomic
 fi
