@@ -192,6 +192,9 @@ for_window [app_id="blueman-assistant"] floating enable
 for_window [app_id="sonata"] floating enable
 for_window [class="radeon-profile"] floating enable
 for_window [class="jetbrains-pycharm" title="win0"] floating enable
+for_window [class="vlc" window_type="utility"] floating enable; move position 0 980
+for_window [class="vlc"] inhibit_idle fullscreen
+for_window [app_id="firefox"] inhibit_idle fullscreen
 
 # spawn systemd.
 exec "systemctl --user import-environment; systemctl --user start sway-session.target"
