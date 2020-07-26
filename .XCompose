@@ -357,7 +357,7 @@ include "%L"
 <dead_small_schwa> <6> : "⚅" U2685
 
 <dead_capital_schwa> <s> : "☼" U263c
-<dead_capital_schwa> <more> : "☽" U263d
+<dead_capital_schwa> <greater> : "☽" U263d
 <dead_capital_schwa> <less> : "☾" U263e
 <dead_capital_schwa> <h> : "☿" U263f
 <dead_capital_schwa> <v> : "♀" U2640

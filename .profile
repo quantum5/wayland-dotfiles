@@ -29,10 +29,12 @@ fi
 # If running from tty1 start sway
 if [ "$(tty)" = "/dev/tty1" ]; then
     export MOZ_ENABLE_WAYLAND=1
-    export GTK_IM_MODULE=fcitx
-    export QTK_IM_MODULE=fcitx
-    export XMODIFIERS=@im=fcitx
+    export GTK_IM_MODULE=fcitx5
+    export QTK_IM_MODULE=fcitx5
+    export XMODIFIERS=@im=fcitx5
     export LC_TIME=C.UTF-8
     export SSH_AUTH_SOCK="/run/user/$UID/openssh_agent"
-    exec sway -Dnoatomic
+    export _JAVA_AWT_WM_NONREPARENTING=1
+    export WLR_NO_HARDWARE_CURSORS=1
+    exec sway > ~/.local/log/sway-"$(date +%Y-%m-%dT%H:%M:%S)".log 2>&1
 fi

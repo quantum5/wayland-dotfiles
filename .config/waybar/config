@@ -116,7 +116,6 @@
     },
     "custom/weather": {
         "exec": "~/.config/waybar/forecast/polybar-forecast",
-        "exec-if": "ping openweathermap.org -c 1",
         "on-click": "~/.config/waybar/forecast/openweathermap",
         "on-click-right": "~/.config/waybar/forecast/google",
         "interval": 600

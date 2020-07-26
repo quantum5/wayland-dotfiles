@@ -3,8 +3,9 @@ set $mod Mod4
 input * xkb_numlock enabled
 output * bg "$HOME/Pictures/Wallpapers/Messier 81.jpg" fill
 
-output HDMI-A-1 pos 0 0 res 1920x1080
-output DP-3 pos 0 1080 res 1920x1080
+output DP-1 pos 0 0 res 2560x1440@144Hz adaptive_sync off
+output HDMI-A-1 pos 2560 0 res 1920x1080
+output DP-3 pos 2560 1080 res 1920x1080
 
 # hardware
 input "1452:613:Apple_Inc._Magic_Trackpad_2" {
@@ -21,16 +22,19 @@ input "1266:2422:Chicony_Wireless_Device" {
     left_handed yes
 }
 
-input type:keyboard {
+input * {
     xkb_layout betterus
 }
 
-font pango:DejaVu Sans Mono 9
+font pango:Segoe UI 11
 
 client.focused #268bd2 #268bd2 #ffffff #268bd2 #268bd2
 
-gaps inner 10
-gaps outer 4
+gaps inner 5
+gaps outer 2
+smart_gaps on
+smart_borders on
+default_border pixel
 
 set $up l
 set $down k
@@ -42,6 +46,7 @@ floating_modifier $mod
 bindsym $mod+Return exec --no-startup-id exec kitty
 
 # exit programs
+bindsym Ctrl+q exec true
 bindsym $mod+Shift+q kill
 bindsym Mod1+F4 kill
 
@@ -145,60 +150,71 @@ bindsym $mod+Ctrl+Shift+4 exec --no-startup-id screenshot
 bindsym $mod+Ctrl+4 exec --no-startup-id screenshot-full
 
 # input method
-exec_always --no-startup-id fcitx -rd
+#exec --no-startup-id fcitx -rd
+exec --no-startup-id fcitx5
 for_window [app_id="fcitx-config-gtk3"] floating enable
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+    # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym $left       resize shrink width 10 px or 10 ppt
-        bindsym $down       resize grow height 10 px or 10 ppt
-        bindsym $up         resize shrink height 10 px or 10 ppt
-        bindsym $right      resize grow width 10 px or 10 ppt
+    # Pressing left will shrink the window’s width.
+    # Pressing right will grow the window’s width.
+    # Pressing up will shrink the window’s height.
+    # Pressing down will grow the window’s height.
+    bindsym $left       resize shrink width 10 px or 10 ppt
+    bindsym $down       resize grow height 10 px or 10 ppt
+    bindsym $up         resize shrink height 10 px or 10 ppt
+    bindsym $right      resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left        resize shrink width 10 px or 10 ppt
-        bindsym Down        resize grow height 10 px or 10 ppt
-        bindsym Up          resize shrink height 10 px or 10 ppt
-        bindsym Right       resize grow width 10 px or 10 ppt
+    # same bindings, but for the arrow keys
+    bindsym Left        resize shrink width 10 px or 10 ppt
+    bindsym Down        resize grow height 10 px or 10 ppt
+    bindsym Up          resize shrink height 10 px or 10 ppt
+    bindsym Right       resize grow width 10 px or 10 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
 
-# gaps
-gaps inner 5
-gaps outer 2
-smart_gaps on
-smart_borders on
-default_border pixel
+mode "passthrough" {
+    bindsym $mod+p mode default
+}
+bindsym $mod+p mode passthrough
 
 # program specific options
-for_window [app_id="firefox" title="Firefox - 共享指示器"] floating enable; move position 1855 0
+for_window [app_id="firefox" title="Firefox - 共享指示器"] floating enable; move position 2495 0
 for_window [app_id="thunderbird" title="撰写.*"] floating enable
 for_window [app_id="thunderbird" title=".*提醒"] floating enable
+for_window [app_id="thunderbird" title="编辑事件.*"] floating enable
+for_window [app_id="thunderbird" title="新建事件.*"] floating enable
 for_window [class="Wine" title="Music Keyboard"] floating enable
+for_window [class="Wine" instance="heidisql.exe"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="blueman-manager"] floating enable
 for_window [app_id="blueman-assistant"] floating enable
 for_window [app_id="sonata"] floating enable
 for_window [class="radeon-profile"] floating enable
 for_window [class="jetbrains-pycharm" title="win0"] floating enable
+for_window [class="jetbrains-idea" title="win0"] floating enable
+for_window [class="jetbrains-webstorm" title="win0"] floating enable
+for_window [class="jetbrains-clion" title="win0"] floating enable
 for_window [class="vlc" window_type="utility"] floating enable; move position 0 980
 for_window [class="vlc"] inhibit_idle fullscreen
 for_window [app_id="firefox"] inhibit_idle fullscreen
+for_window [app_id="wraith-master-gtk"] floating enable
+for_window [class="electrum"] floating enable
+for_window [app_id="ApacheDirectoryStudio"] floating enable
 
 # spawn systemd.
 exec "systemctl --user import-environment; systemctl --user start sway-session.target"
+exec lxpolkit
+exec pulseaudio --start
 
 # background apps
-exec exec slack -u
+exec exec slack -us
 exec --no-startup-id exec run_keybase -a
+
+xwayland force

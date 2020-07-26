@@ -5,6 +5,7 @@ PartOf=graphical-session.target
 [Service]
 Type=simple
 ExecStart=%h/.config/sway/cava-bg
+ExecReload=/usr/bin/pkill -USR1 -P $MAINPID cava
 
 [Install]
 WantedBy=sway-session.target
