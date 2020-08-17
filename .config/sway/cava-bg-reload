@@ -1,0 +1,4 @@
+#!/bin/bash
+pactl subscribe | grep -E "(new|remove)' on card" | while read -r line; do
+    systemctl --user reload cava-bg.service
+done

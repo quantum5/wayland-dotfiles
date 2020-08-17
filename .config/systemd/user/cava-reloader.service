@@ -1,0 +1,10 @@
+[Unit]
+Description=Reloads audio visualizer in the background.
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.config/sway/cava-bg-reload
+
+[Install]
+WantedBy=sway-session.target
