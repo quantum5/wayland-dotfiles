@@ -1,8 +1,11 @@
 XKBSYMBOLS=/usr/share/X11/xkb/symbols
 
-.PHONY: install install-symbols install-ibus
+.PHONY: install install-symbols install-ibus install-extra-fn
 
 install: install-symbols install-ibus
+
+install-extra-fn:
+	patch /usr/share/X11/xkb/symbols/inet < extra-fn.patch
 
 install-symbols:
 	cp betterus.xkb $(XKBSYMBOLS)/betterus

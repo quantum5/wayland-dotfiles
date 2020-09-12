@@ -1,0 +1,21 @@
+--- a/usr/share/X11/xkb/symbols/inet 	2020-09-12 16:03:37.655951686 -0400
++++ b/usr/share/X11/xkb/symbols/inet	2020-09-12 16:04:14.767963244 -0400
+@@ -218,12 +218,12 @@
+     key <I254>   {      [ XF86WWAN              ]       }; // KEY_WWAN
+     key <I255>   {      [ XF86RFKill            ]       }; // KEY_RFKILL
+ 
+-    key <FK13>   {      [ XF86Tools         ]       };
+-    key <FK14>   {      [ XF86Launch5       ]       };
+-    key <FK15>   {      [ XF86Launch6       ]       };
+-    key <FK16>   {      [ XF86Launch7       ]       };
+-    key <FK17>   {      [ XF86Launch8       ]       };
+-    key <FK18>   {      [ XF86Launch9       ]       };
++    key <FK13>   { [ F13 ] };
++    key <FK14>   { [ F14 ] };
++    key <FK15>   { [ F15 ] };
++    key <FK16>   { [ F16 ] };
++    key <FK17>   { [ F17 ] };
++    key <FK18>   { [ F18 ] };
+ };
+ 
+ 
