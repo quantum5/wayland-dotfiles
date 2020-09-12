@@ -1,15 +1,20 @@
 set $mod Mod4
 
 input * xkb_numlock enabled
-output * bg "$HOME/Pictures/Wallpapers/Messier 81.jpg" fill
+output * bg "$HOME/Pictures/Wallpapers/Star Forge.png" fill
 
 output DP-1 pos 0 0 res 2560x1440@144Hz adaptive_sync off
-output HDMI-A-1 pos 2560 0 res 1920x1080
-output DP-3 pos 2560 1080 res 1920x1080
+output DP-2 pos 2560 0 res 3840x2160 scale 1.5
+output DP-3 pos 2560 1440 res 1920x1080
+#output HDMI-A-1 pos 2560 0 res 1920x1080
+#output DP-3 pos 2560 2160 res 1920x1080
 
 # hardware
 input "1452:613:Apple_Inc._Magic_Trackpad_2" {
     natural_scroll enabled
+    pointer_accel 0.5
+    accel_profile adaptive
+    scroll_factor 0.75
 }
 
 input "76:613:Apple_Inc._Magic_Trackpad_2" {
@@ -100,7 +105,8 @@ bindsym $mod+minus scratchpad show
 
 # setup workspace
 workspace 1 output DP-1
-workspace 2 output HDMI-A-1
+workspace 2 output DP-2
+#workspace 2 output HDMI-A-1
 workspace 3 output DP-3
 
 # switch to workspace
@@ -212,9 +218,15 @@ for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [app_id="wraith-master-gtk"] floating enable
 for_window [class="electrum"] floating enable
 for_window [app_id="ApacheDirectoryStudio"] floating enable
+for_window [app_id="zenmonitor"] floating enable
+for_window [app_id="piper"] floating enable
+for_window [app_id="SVPManager"] move scratchpad; floating enable
+for_window [class="mpv"] inhibit_idle fullscreen
 
-workspace 8 output HDMI-A-1
+workspace 8 output DP-3
+#workspace 8 output HDMI-A-1
 assign [class="looking-glass-client" title="win10"] workspace 8
+assign [app_id="looking-glass-client" title="win10"] workspace 8
 
 # spawn systemd.
 exec "systemctl --user import-environment; systemctl --user start sway-session.target"

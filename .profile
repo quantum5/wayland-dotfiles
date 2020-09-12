@@ -29,6 +29,7 @@ fi
 # If running from tty1 start sway
 if [ "$(tty)" = "/dev/tty1" ]; then
     export MOZ_ENABLE_WAYLAND=1
+    export QT_QPA_PLATFORM=wayland
     export GTK_IM_MODULE=fcitx5
     export QTK_IM_MODULE=fcitx5
     export XMODIFIERS=@im=fcitx5

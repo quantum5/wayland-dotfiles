@@ -8,6 +8,8 @@ Type=simple
 ExecStart=/usr/bin/waybar
 Restart=on-failure
 RestartSec=5s
+StandardOutput=file:/dev/null
+StandardError=file:/dev/null
 
 [Install]
 WantedBy=sway-session.target
