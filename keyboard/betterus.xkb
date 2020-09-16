@@ -7,7 +7,7 @@ xkb_symbols "betterus" {
     key <AE02>  { [         2,         at,           dead_a,   dead_macron ] };
     key <AE03>  { [         3, numbersign, dead_doublegrave, dead_abovedot ] };
     key <AE04>  { [         4,     dollar,             cent, dead_currency ] };
-    key <AE05>  { [         5,    percent,         permille,         U203d ] };
+    key <AE05>  { [         5,    percent,            U2030,         U203d ] };
     key <AE06>  { [         6, asciicircum, dead_circumflex,    dead_caron ] };
     key <AE07>  { [         7,  ampersand,      dead_ogonek,         U27c2 ] };
     key <AE08>  { [         8,   asterisk,            U2295,         U200d ] };
@@ -49,7 +49,7 @@ xkb_symbols "betterus" {
     key <AB05>  { [         b,          B,           dead_o,        dead_O ] };
     key <AB06>  { [         n,          N,         multiply,       notsign ] };
     key <AB07>  { [         m,          M,           dead_e,        dead_E ] };
-    key <AB08>  { [     comma,       less,     dead_cedilla, dead_commabelow ] };
+    key <AB08>  { [     comma,       less,     dead_cedilla, dead_belowcomma ] };
     key <AB09>  { [    period,    greater,            U22c5, dead_abovering ] };
     key <AB10>  { [     slash,   question,         division,  questiondown ] };
 
