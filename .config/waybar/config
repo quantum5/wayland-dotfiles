@@ -104,8 +104,8 @@
         "format-muted": "<span font_desc='Font Awesome 5 Pro'></span>",
         "format-icons": {
             "headphone": "",
-            "hands-free": "磤",
-            "headset": "磤",
+            "hands-free": "",
+            "headset": "",
             "phone": "",
             "portable": "",
             "car": "",

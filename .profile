@@ -37,6 +37,6 @@ if [ "$(tty)" = "/dev/tty1" ]; then
     export SSH_AUTH_SOCK="/run/user/$UID/openssh_agent"
     export _JAVA_AWT_WM_NONREPARENTING=1
     export WLR_NO_HARDWARE_CURSORS=1
-    sway > ~/.local/log/sway-"$(date +%Y-%m-%dT%H:%M:%S)".log 2>&1
+    sway -d > ~/.local/log/sway-"$(date +%Y-%m-%dT%H:%M:%S)".log 2>&1
     exec systemctl --user exit
 fi

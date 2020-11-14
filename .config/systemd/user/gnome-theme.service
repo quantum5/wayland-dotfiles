@@ -5,7 +5,7 @@ PartOf=graphical-session.target
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/gsettings set org.gnome.desktop.interface gtk-theme Adwaita
-ExecStart=/usr/bin/gsettings set org.gnome.desktop.interface cursor-theme win8
+ExecStart=/usr/bin/gsettings set org.gnome.desktop.interface cursor-theme win10
 RemainAfterExit=yes
 
 [Install]

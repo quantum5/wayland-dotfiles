@@ -529,3 +529,8 @@ include "%L"
 <dead_belowverticalline> <6> : "♧" U2667
 <dead_belowverticalline> <7> : "♡" U2661
 <dead_belowverticalline> <8> : "♢" U2662
+
+<dead_cedilla> <A> : "Ą" U0104
+<dead_cedilla> <a> : "ą" U0105
+<dead_cedilla> <E> : "Ę" U0118
+<dead_cedilla> <e> : "ę" U0119

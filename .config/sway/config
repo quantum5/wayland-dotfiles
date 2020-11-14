@@ -1,9 +1,11 @@
 set $mod Mod4
 
 input * xkb_numlock enabled
-output * bg "$HOME/Pictures/Wallpapers/Star Forge.png" fill
+output * bg "$HOME/Pictures/Wallpapers/KotOR Dark Ending.png" fill
 
-output DP-1 pos 0 0 res 2560x1440@144Hz adaptive_sync off
+seat * xcursor_theme win10 32
+
+output DP-1 pos 0 0 res 2560x1440@144Hz adaptive_sync on
 output DP-2 pos 2560 0 res 3840x2160 scale 1.5
 output DP-3 pos 2560 1440 res 1920x1080
 #output HDMI-A-1 pos 2560 0 res 1920x1080
@@ -27,6 +29,10 @@ input "1266:2422:Chicony_Wireless_Device" {
     left_handed yes
 }
 
+input "9580:110:HUION_420_Pen" {
+    map_to_output DP-1
+}
+
 input * {
     xkb_layout betterus
 }
@@ -48,7 +54,7 @@ set $right semicolon
 
 floating_modifier $mod
 
-bindsym $mod+Return exec --no-startup-id exec kitty
+bindsym $mod+Return exec --no-startup-id exec ~/.config/sway/same-dir-term
 
 # exit programs
 bindsym Ctrl+q exec true
@@ -223,8 +229,7 @@ for_window [app_id="piper"] floating enable
 for_window [app_id="SVPManager"] move scratchpad; floating enable
 for_window [class="mpv"] inhibit_idle fullscreen
 
-workspace 8 output DP-3
-#workspace 8 output HDMI-A-1
+workspace 8 output DP-1
 assign [class="looking-glass-client" title="win10"] workspace 8
 assign [app_id="looking-glass-client" title="win10"] workspace 8
 
