@@ -1,0 +1,3 @@
+#!/bin/sh
+jack_disconnect 'Echo Cancelled Mic:capture_FL' 'in-Windows:input 0'
+jack_disconnect 'Echo Cancelled Mic:capture_FR' 'in-Windows:input 1'

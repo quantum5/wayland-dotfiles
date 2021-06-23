@@ -1,0 +1,29 @@
+#!/bin/bash
+headphones='Bose QC35 II'
+speakers='Ellesmere HDMI Audio [Radeon RX 470/480 / 570/580/590] Digital Stereo (HDMI)'
+microphone='Starship/Matisse HD Audio Controller Analog Stereo'
+
+while read -r line; do
+    case "$line" in
+        *unregistered)
+            jack_connect 'out-Windows:output 0' "$speakers:playback_FL"
+            jack_connect 'out-Windows:output 1' "$speakers:playback_FR"
+            jack_connect 'cava:input_FL' "$speakers Monitor:monitor_FL"
+            jack_connect 'cava:input_FR' "$speakers Monitor:monitor_FR"
+            jack_disconnect 'cava:input_FL' "$microphone:capture_FL"
+            jack_disconnect 'cava:input_FR' "$microphone:capture_FR"
+        ;;
+        *registered)
+            sleep 1
+            jack_connect 'out-Windows:output 0' "$headphones:playback_FL"
+            jack_connect 'out-Windows:output 1' "$headphones:playback_FR"
+            jack_disconnect 'out-Windows:output 0' "$speakers:playback_FL"
+            jack_disconnect 'out-Windows:output 1' "$speakers:playback_FR"
+            jack_connect 'cava:input_FL' "$headphones Monitor:monitor_FL"
+            jack_connect 'cava:input_FR' "$headphones Monitor:monitor_FR"
+            jack_disconnect 'cava:input_FL' "$speakers Monitor:monitor_FL"
+            jack_disconnect 'cava:input_FR' "$speakers Monitor:monitor_FR"
+        ;;
+    esac
+    pkill -USR1 cava
+done < <(stdbuf -oL jack_evmon | grep --line-buffered -E 'Client Bose QC35 II (un|)registered')

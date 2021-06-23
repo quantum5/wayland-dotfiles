@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ "$#" -lt 1 ]; then
+    exec -a "$0" blueman-sendto --help
+fi
+files=()
+for file in "$@"; do
+    if [ -f "$file" ]; then
+        files+=("$(readlink -f "$file")")
+    else
+        files+=("$file")
+    fi
+done
+exec swaymsg exec blueman-sendto "${files[@]}"

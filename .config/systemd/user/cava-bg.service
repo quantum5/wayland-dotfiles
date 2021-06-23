@@ -4,6 +4,7 @@ PartOf=graphical-session.target
 
 [Service]
 Type=simple
+Restart=always
 ExecStart=%h/.config/sway/cava-bg
 ExecReload=/usr/bin/pkill -USR1 -P $MAINPID cava
 

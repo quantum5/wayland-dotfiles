@@ -1,0 +1,9 @@
+#!/bin/sh
+FLAG="$XDG_RUNTIME_DIR/focus-follows-mouse-off"
+if [ -f "$FLAG" ]; then
+    swaymsg focus_follows_mouse yes
+    rm "$FLAG"
+else
+    swaymsg focus_follows_mouse no
+    touch "$FLAG"
+fi

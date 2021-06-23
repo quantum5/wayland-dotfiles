@@ -1,2 +1,2 @@
 #!/bin/sh
-exec kitty -c ~/.config/kitty/cava.conf --background cava
+exec kitty -c ~/.config/kitty/cava.conf --background --background-monitor 'Goldstar Company Ltd LG HDR 4K' --mouse-passthrough cava

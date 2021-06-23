@@ -1,0 +1,6 @@
+#!/bin/bash
+{
+    read -r id
+    read -r summary
+} < <(makoctl list | jq -re '.data[0] | map(select(.actions.data | length > 0)) | first | [.id.data, .summary.data][]')
+[ "$id" != null ] && makoctl menu -n "$id" rofi -dmenu -i -p "$summary" && makoctl dismiss -n "$id"

@@ -30,13 +30,17 @@ fi
 if [ "$(tty)" = "/dev/tty1" ]; then
     export MOZ_ENABLE_WAYLAND=1
     export QT_QPA_PLATFORM=wayland
-    export GTK_IM_MODULE=fcitx5
-    export QTK_IM_MODULE=fcitx5
-    export XMODIFIERS=@im=fcitx5
+    export GTK_IM_MODULE=fcitx
+    export QTK_IM_MODULE=fcitx
+    export XMODIFIERS=@im=fcitx
     export LC_TIME=C.UTF-8
     export SSH_AUTH_SOCK="/run/user/$UID/openssh_agent"
     export _JAVA_AWT_WM_NONREPARENTING=1
     export WLR_NO_HARDWARE_CURSORS=1
+    export VDPAU_DRIVER=radeonsi
+    export XDG_CURRENT_DESKTOP=sway
+    ulimit -n 8192
     sway -d > ~/.local/log/sway-"$(date +%Y-%m-%dT%H:%M:%S)".log 2>&1
     exec systemctl --user exit
 fi
+source "$HOME/.cargo/env"

@@ -1,0 +1,7 @@
+#!/bin/bash
+term_pid="$(swaymsg -t get_tree | jq '.. | (.nodes? // empty)[] | select(.focused==true).pid')"
+bash_pid="$(pgrep -P "${term_pid}" bash)"
+if [ -n "${bash_pid}" ]; then
+	cd "$(readlink -f "/proc/${bash_pid}/cwd")"
+fi
+exec kitty

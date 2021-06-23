@@ -1,0 +1,15 @@
+[Unit]
+Description=Connect audio when Bluetooth headhones connects and disconnects.
+PartOf=graphical-session.target
+After=pipewire.service
+
+[Service]
+Type=simple
+ExecStart=%h/.config/sway/bt-headphones
+Restart=on-failure
+RestartSec=5s
+KillSignal=SIGINT
+TimeoutStopSec=1
+
+[Install]
+WantedBy=sway-session.target
