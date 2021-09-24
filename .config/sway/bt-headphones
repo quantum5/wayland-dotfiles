@@ -1,7 +1,7 @@
 #!/bin/bash
 headphones='Bose QC35 II'
 speakers='Ellesmere HDMI Audio [Radeon RX 470/480 / 570/580/590] Digital Stereo (HDMI)'
-microphone='Starship/Matisse HD Audio Controller Analog Stereo'
+microphone='Echo Cancelled Mic'
 
 while read -r line; do
     case "$line" in

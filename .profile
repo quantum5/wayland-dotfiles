@@ -26,6 +26,8 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+export LIBVIRT_DEFAULT_URI='qemu:///system'
+
 # If running from tty1 start sway
 if [ "$(tty)" = "/dev/tty1" ]; then
     export MOZ_ENABLE_WAYLAND=1
@@ -36,11 +38,10 @@ if [ "$(tty)" = "/dev/tty1" ]; then
     export LC_TIME=C.UTF-8
     export SSH_AUTH_SOCK="/run/user/$UID/openssh_agent"
     export _JAVA_AWT_WM_NONREPARENTING=1
-    export WLR_NO_HARDWARE_CURSORS=1
     export VDPAU_DRIVER=radeonsi
     export XDG_CURRENT_DESKTOP=sway
     ulimit -n 8192
-    sway -d > ~/.local/log/sway-"$(date +%Y-%m-%dT%H:%M:%S)".log 2>&1
-    exec systemctl --user exit
+    sway -Dnoscanout #-d > ~/.local/log/sway-"$(date +%Y-%m-%dT%H:%M:%S)".log 2>&1
+    exec systemctl --user stop -- $(systemctl --user show -p Wants sway-session.target | cut -d= -f2)
 fi
 source "$HOME/.cargo/env"

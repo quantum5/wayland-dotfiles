@@ -6,6 +6,7 @@ PartOf=graphical-session.target
 Type=oneshot
 ExecStart=/usr/bin/gsettings set org.gnome.desktop.interface gtk-theme Adwaita
 ExecStart=/usr/bin/gsettings set org.gnome.desktop.interface cursor-theme win10
+ExecStart=/usr/bin/gsettings set org.gnome.desktop.interface font-name 'Segoe UI 11'
 RemainAfterExit=yes
 
 [Install]
