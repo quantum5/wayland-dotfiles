@@ -33,7 +33,7 @@ window#waybar {
   border-bottom: 2px solid white;
 }
 
-#clock, #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #custom-spotify, #tray, #mode, #idle_inhibitor {
+#custom-recording, #clock, #battery, #cpu, #memory, #backlight, #network, #pulseaudio, #custom-spotify, #tray, #mode, #idle_inhibitor {
   padding: 0 5px;
   margin: 0 3px;
   margin-top: 3px;
@@ -42,6 +42,10 @@ window#waybar {
 
 #tray {
   border-bottom: 3px solid transparent;
+}
+
+#custom-recording {
+  border-bottom: 3px solid #cb4b16;
 }
 
 #mpd {
@@ -56,8 +60,17 @@ window#waybar {
   border-bottom: 3px solid #cb4b16;
 }
 
+#idle_inhibitor {
+  border-bottom: 3px solid #268bd2;
+  margin-right: -2px;
+}
+
 #cpu {
   border-bottom: 3px solid #859900;
+}
+
+#temperature {
+  border-bottom: 3px solid #cb4b16;
 }
 
 #memory {

@@ -5,9 +5,9 @@ output * bg "$HOME/Pictures/Wallpapers/KotOR Dark Ending.png" fill
 
 seat * xcursor_theme win10 32
 
-output DP-1 pos 0 0 res 2560x1440@144Hz adaptive_sync on
-output DP-2 pos 2560 0 res 3840x2160 scale 1.5 adaptive_sync on
-output DP-3 pos 2560 1440 res 1920x1080
+output DP-1 pos 0 0 res 2560x1440@144Hz adaptive_sync on max_render_time 1
+output DP-2 pos 2560 0 res 3840x2160 scale 1.5 adaptive_sync on max_render_time 3
+output DP-3 pos 2560 1440 res 1920x1080 max_render_time 1
 #output HDMI-A-1 pos 2560 0 res 1920x1080
 #output DP-3 pos 2560 2160 res 1920x1080
 
@@ -162,11 +162,12 @@ bindsym --inhibited XF86AudioNext exec --no-startup-id exec mpc next
 # screenshot
 for_window [title="feh.*screenshot"] floating enable
 for_window [title="feh.*screenshot"] fullscreen on
-bindsym print exec --no-startup-id exec screenshot
-bindsym $mod+print exec --no-startup-id exec screenshot-full
+bindsym --inhibited print exec --no-startup-id exec screenshot
+bindsym Mod1+Shift+print exec --no-startup-id exec screenshot-full
 bindsym Mod1+print exec --no-startup-id exec screenshot-window
 bindsym $mod+Ctrl+Shift+4 exec --no-startup-id exec screenshot
 bindsym $mod+Ctrl+4 exec --no-startup-id exec screenshot-full
+bindsym Mod4+print exec --no-startup-id exec ~/.config/sway/record-screen
 
 # input method
 exec --no-startup-id exec fcitx -rd
@@ -212,6 +213,7 @@ for_window [app_id="thunderbird" title=".*提醒"] floating enable
 for_window [app_id="thunderbird" title="编辑事件.*"] floating enable
 for_window [app_id="thunderbird" title="新建事件.*"] floating enable
 for_window [class="Wine" title="Music Keyboard"] floating enable
+for_window [class="keyboard" title="Music Keyboard"] floating enable
 for_window [class="Wine" instance="heidisql.exe"] floating enable
 for_window [app_id="pavucontrol"] floating enable
 for_window [app_id="blueman-manager"] floating enable
@@ -231,6 +233,7 @@ for_window [app_id="SVPManager"] move scratchpad; floating enable
 for_window [class="mpv"] inhibit_idle fullscreen
 for_window [class="Bitwarden"] floating enable
 for_window [app_id="Bitwarden"] floating enable
+for_window [app_id="looking-glass-client"] max_render_time 1
 
 workspace 8 output DP-1
 assign [class="looking-glass-client" title="win10"] workspace 8
