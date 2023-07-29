@@ -1,20 +1,30 @@
 #!/bin/bash
-headphones='Bose QC35 II'
-speakers='Ellesmere HDMI Audio [Radeon RX 470/480 / 570/580/590] Digital Stereo (HDMI)'
+#headphones='Bose QC35 II'
+headphones='WH-1000XM4'
+#speakers='Ellesmere HDMI Audio [Radeon RX 470/480 / 570/580/590] Digital Stereo (HDMI)'
+speakers='Pebble V3 Analog Stereo'
+speakers2='WONDERBOOM 2'
 microphone='Echo Cancelled Mic'
 
 while read -r line; do
     case "$line" in
-        *unregistered)
+        *"$headphones"*unregistered)
+            echo "$headphones unregistered"
             jack_connect 'out-Windows:output 0' "$speakers:playback_FL"
             jack_connect 'out-Windows:output 1' "$speakers:playback_FR"
             jack_connect 'cava:input_FL' "$speakers Monitor:monitor_FL"
             jack_connect 'cava:input_FR' "$speakers Monitor:monitor_FR"
             jack_disconnect 'cava:input_FL' "$microphone:capture_FL"
             jack_disconnect 'cava:input_FR' "$microphone:capture_FR"
+            jack_connect 'out-macOS:output 0' "$speakers:playback_FL"
+            jack_connect 'out-macOS:output 1' "$speakers:playback_FR"
+            jack_connect 'Music Player Daemon:left' "$speakers:playback_FL"
+            jack_connect 'Music Player Daemon:right' "$speakers:playback_FR"
+            pkill -USR1 cava
         ;;
-        *registered)
+        *"$headphones"*registered)
             sleep 1
+            echo "$headphones registered"
             jack_connect 'out-Windows:output 0' "$headphones:playback_FL"
             jack_connect 'out-Windows:output 1' "$headphones:playback_FR"
             jack_disconnect 'out-Windows:output 0' "$speakers:playback_FL"
@@ -23,7 +33,23 @@ while read -r line; do
             jack_connect 'cava:input_FR' "$headphones Monitor:monitor_FR"
             jack_disconnect 'cava:input_FL' "$speakers Monitor:monitor_FL"
             jack_disconnect 'cava:input_FR' "$speakers Monitor:monitor_FR"
+            jack_connect 'out-macOS:output 0' "$headphones:playback_FL"
+            jack_connect 'out-macOS:output 1' "$headphones:playback_FR"
+            jack_disconnect 'out-macOS:output 0' "$speakers:playback_FL"
+            jack_disconnect 'out-macOS:output 1' "$speakers:playback_FR"
+            jack_connect 'mscore:left' "$headphones:playback_FL"
+            jack_connect 'mscore:right' "$headphones:playback_FR"
+            jack_connect 'Music Player Daemon:left' "$headphones:playback_FL"
+            jack_connect 'Music Player Daemon:right' "$headphones:playback_FR"
+            jack_disconnect 'Music Player Daemon:left' "$speakers:playback_FL"
+            jack_disconnect 'Music Player Daemon:right' "$speakers:playback_FR"
+            pkill -USR1 cava
+        ;;
+        *"$speakers2"*registered)
+            sleep 1
+            echo "$speakers2 unregistered"
+            jack_connect 'Music Player Daemon:left' "$speakers2:playback_FL"
+            jack_connect 'Music Player Daemon:right' "$speakers2:playback_FR"
         ;;
     esac
-    pkill -USR1 cava
-done < <(stdbuf -oL jack_evmon | grep --line-buffered -E 'Client Bose QC35 II (un|)registered')
+done < <(stdbuf -oL jack_evmon | grep --line-buffered -E "Client .* (un|)registered")

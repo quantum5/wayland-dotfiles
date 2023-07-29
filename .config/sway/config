@@ -2,6 +2,7 @@ set $mod Mod4
 
 input * xkb_numlock enabled
 output * bg "$HOME/Pictures/Wallpapers/KotOR Dark Ending.png" fill
+output * render_bit_depth 8
 
 seat * xcursor_theme win10 32
 
@@ -47,11 +48,6 @@ smart_gaps on
 smart_borders on
 default_border pixel
 
-set $up l
-set $down k
-set $left j
-set $right semicolon
-
 floating_modifier $mod
 
 bindsym $mod+Return exec --no-startup-id exec ~/.config/sway/same-dir-term
@@ -65,8 +61,10 @@ bindsym Mod1+F4 kill
 bindsym $mod+d exec exec rofi -show run
 bindsym $mod+space exec exec rofi -show run
 bindsym $mod+g exec exec rofi -show ssh
+bindsym $mod+Shift+g exec exec rofi -show ssh -ssh-client mosh -display-ssh mosh
 bindsym $mod+Shift+d exec exec respond
 bindsym $mod+Shift+e exec exec ~/.config/sway/emoji-select
+bindsym $mod+j exec exec ~/.config/sway/emoji-select
 
 # change focus
 bindsym $mod+Left focus left
@@ -151,13 +149,16 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r reload
 
 # volume control
-bindsym --inhibited XF86AudioRaiseVolume exec --no-startup-id exec pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym --inhibited XF86AudioLowerVolume exec --no-startup-id exec pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym --inhibited XF86AudioMute exec --no-startup-id exec pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym --inhibited XF86AudioStop exec --no-startup-id exec mpc stop
-bindsym --inhibited XF86AudioPlay exec --no-startup-id exec mpc toggle
-bindsym --inhibited XF86AudioPrev exec --no-startup-id exec mpc prev
-bindsym --inhibited XF86AudioNext exec --no-startup-id exec mpc next
+bindsym --locked --inhibited XF86AudioRaiseVolume exec --no-startup-id exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym --locked --inhibited XF86AudioLowerVolume exec --no-startup-id exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym --locked --inhibited XF86AudioMute exec --no-startup-id exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym --locked --inhibited XF86AudioStop exec --no-startup-id exec mpc stop
+bindsym --locked --inhibited XF86AudioPlay exec --no-startup-id mpc | grep -q paused && exec mpc play
+bindsym --locked --inhibited XF86AudioPause exec --no-startup-id exec mpc pause
+bindsym --locked --inhibited XF86AudioPrev exec --no-startup-id mpc play && exec mpc prev
+bindsym --locked --inhibited XF86AudioNext exec --no-startup-id mpc play && exec mpc next
+# KEY_PLAYPAUSE that somehow gets translated into XF86AudioPlay
+bindcode --locked --inhibited 172 exec --no-startup-id exec mpc toggle
 
 # screenshot
 for_window [title="feh.*screenshot"] floating enable
@@ -184,12 +185,6 @@ mode "resize" {
     # Pressing right will grow the window’s width.
     # Pressing up will shrink the window’s height.
     # Pressing down will grow the window’s height.
-    bindsym $left       resize shrink width 10 px or 10 ppt
-    bindsym $down       resize grow height 10 px or 10 ppt
-    bindsym $up         resize shrink height 10 px or 10 ppt
-    bindsym $right      resize grow width 10 px or 10 ppt
-
-    # same bindings, but for the arrow keys
     bindsym Left        resize shrink width 10 px or 10 ppt
     bindsym Down        resize grow height 10 px or 10 ppt
     bindsym Up          resize shrink height 10 px or 10 ppt
@@ -207,7 +202,7 @@ mode "passthrough" {
 bindsym $mod+p mode passthrough
 
 # program specific options
-for_window [app_id="firefox" title="Firefox — 共享指示器"] floating enable; move position 2495 0
+for_window [app_id="firefox" title="Firefox — 共享指示器"] floating enable, move position 2495 0, resize set 57 31
 for_window [app_id="thunderbird" title="撰写.*"] floating enable
 for_window [app_id="thunderbird" title=".*提醒"] floating enable
 for_window [app_id="thunderbird" title="编辑事件.*"] floating enable

@@ -2,6 +2,7 @@ default-timeout=5000
 
 border-color=#268bd2cc
 background-color=#285577cc
+height=300
 
 [actionable]
 border-color=#ffa500cc

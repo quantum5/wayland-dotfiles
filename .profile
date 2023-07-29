@@ -40,7 +40,8 @@ if [ "$(tty)" = "/dev/tty1" ]; then
     export _JAVA_AWT_WM_NONREPARENTING=1
     export VDPAU_DRIVER=radeonsi
     export XDG_CURRENT_DESKTOP=sway
-    ulimit -n 8192
+    export QT_QPA_PLATFORMTHEME=qt5ct
+    #"$HOME/dev/sway/build/sway/sway" -Dnoscanout -d > ~/.local/log/sway-"$(date +%Y-%m-%dT%H:%M:%S)".log 2>&1
     sway -Dnoscanout #-d > ~/.local/log/sway-"$(date +%Y-%m-%dT%H:%M:%S)".log 2>&1
     exec systemctl --user stop -- $(systemctl --user show -p Wants sway-session.target | cut -d= -f2)
 fi

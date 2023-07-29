@@ -5,6 +5,8 @@ include "%L"
 
 <dead_tilde> <P> : "Þ" THORN
 <dead_tilde> <p> : "þ" thorn
+<dead_tilde> <D> : "Ð" ETH
+<dead_tilde> <d> : "ð" thorn
 
 <dead_A> <0> : "⁰" U2070
 <dead_A> <1> : "¹" U00b9
